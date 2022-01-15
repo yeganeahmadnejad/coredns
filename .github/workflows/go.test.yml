@@ -83,3 +83,16 @@ jobs:
 
     - name: Test Makefile.docker
       run:  make VERSION=x DOCKER=x -n release docker-push -f Makefile.docker
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: configure
+      run: ./configure
+      
+    - name: Install dependencies
+      run: make
+      
