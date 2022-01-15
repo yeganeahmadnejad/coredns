@@ -2,10 +2,8 @@
 #build stage
 FROM golang:1.16 AS builder
 RUN mkdir -p /go/src/app
-WORKDIR /go/src/app
-RUN pwd
 COPY go.sum go.mod /go/src/app/
-RUN ls
+WORKDIR /go/src/app
 RUN go mod download
 
 COPY . /go/src/app
